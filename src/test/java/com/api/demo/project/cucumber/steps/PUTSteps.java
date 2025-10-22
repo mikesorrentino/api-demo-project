@@ -6,8 +6,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -15,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PUTSteps {
-    private static final Logger log = LoggerFactory.getLogger(PostSteps.class);
     @Value("${baseURL}")
     private String baseUrl;
 
@@ -27,10 +24,6 @@ public class PUTSteps {
 
     @Autowired
     private MainResponseStorage mainResponseStorage;
-
-
-
-
 
     // Create the methods for GET, POST, PUT and DELETE using rest assured
     @When("I change user name")

@@ -6,8 +6,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -17,13 +15,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PostSteps {
 
-    private static final Logger log = LoggerFactory.getLogger(PostSteps.class);
     @Value("${baseURL}")
     private String baseUrl;
 
     @Value("${USERS}")
     private String usersEndpoint;
-
 
     @Autowired
     private PayloadBuilder payloadBuilder;
@@ -37,9 +33,6 @@ public class PostSteps {
     public void iCreateAUser() {
         String body = payloadBuilder.prepareRequestPayload("createUser.json");
         String token = mainResponseStorage.getBearerToken();
-        String userId = mainResponseStorage.getUserId();
-
-
 
         Response response = RestAssured
                 .given()
